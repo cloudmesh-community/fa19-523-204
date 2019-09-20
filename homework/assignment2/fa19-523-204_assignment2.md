@@ -67,6 +67,80 @@ differences between IaaS, PaaS and SaaS, and related changes in how
 companies develop new capabilites are definitely still live and
 interesting issues.
 
-# Subtopic: Trends in *foo*
+Most of those seem to me to be well onto the slope
+of enlightenment, but not thigs I'd assume students in an introductory
+big data class know. Cloud availability of tools like tensor
+processors and GPGPU chips is very new and interesting to me. Still
+early enough in deployment that I wouldn't feel comfortable
+recommending them to most customers because I'm not yet confident I
+know where they do and don't offer benefits. Hopefully I'll know more
+toward the end of this course.
+
+The change in research paradigms was, for me, the most interesting
+topic covered. Although I feel like I've heard at least parts of it
+before, the difference between the 3rd paradigm, generating carefully
+chosen data to test previously-developed theories, and the 4th,
+examining copious data to look for signs of potential theories, is
+fascinating. In some sense, it almost seems like a more powerful
+return to the earlier "observation" paradigm, but with much greater
+power.
+
+Beyond excitement at the possibilities, my initial thought on this
+transformation is concern that the same computational power that
+allows us to search for patterns in vast amounts of data may also lead
+us astray. There seems to be a huge potential for spurrious
+correlations or happenstance in the data sets to produce a problem
+much like the well-known issues of *p-hacking*, but on a grander
+scale. Since that could also happen without the participation of a
+human who can inspect their own behavior and motivations, it seems all
+the more important to develop a testable theory from the data.
+
+I'm not terribly familiar with the field, but it seems that perhaps
+fields like astrophysics that still depend heavily on observation
+without much possibility of experimentation could both benefit greatly
+and guide the rest of us in avoiding those pitfalls.
+
+# Subtopic: Trends in cloud processing technology
+
+The current cloud platforms of which I am aware, both public and
+private, are almost exclusively deployed on x86-64 hardware with
+virtualization extensions. In the public space, Azure uses Hyper-V,
+Amazon uses Xen, a few niche players use VMWare, and Googgle Compute
+Engine along with most providers I haven't mentioned use Linux
+KVM. Many also use container technologies like Kubernetes, Docker,
+Podman, and similar on top of the VMs, but the underlying computation
+is still on Intel-compatible chips.
+
+In this week's lectures, it was pointed out that for big data
+applications, this dominant platform may not be the ideal. Mention was
+made of tensor processors and of GPUs such as those developed by
+nVidia as more effective for some classes of problems, and the recent
+availability of such chips in cloud contexts. The solutions I'm
+currently aware of involve dedicating individual GPU chips from
+dedicated many-GPU platforms to particular vloud VM instances, which
+rather reduces the flexibility normally expected from cloud systems.
+
+I have also recently heard discussion of certain classes of my
+customers looking for CPU diversity as a security measure. They hope to reduce
+the liklihood that a particular exploit is successful when those
+exploits may depend on details of the physical architecture to execute
+successfully, even when taking advantage of the same software
+vulnerability at a source code level.
+
+While these applications contrast with the cases from the lecture in
+that the advantage they seek is *unpredictability* of the
+characteristics of the execution platform, the idea of processor
+diversity seems similar. A system which could unpredictably move
+workloads between hardware platforms should also be able to
+deliberately do so for performance optimization.
 
 # Possible improvements
+
+For use in a cloud platform, I know that both Power64 and Arm64 now
+offer virtualization capabilities which can be used through the same
+KVM hypervisor as x86-84 chips. Are there similar developments
+happening in the area of tensor processors or GPUs to provide these
+capabilities through standard interfaces? Is there demand for these
+services? what kinds of new processing could be enabled by a cloud
+platform that made these capabilites available?
+
