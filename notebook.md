@@ -10,3 +10,10 @@
 
 # Week 3
 - [x] Watched more videos
+- [x] Submitted homework 2
+
+# Week 4
+- [x] Watched more videos
+- [x] Attended TPRC conference
+- [x] Explored data sets available from my advisor's lab
+
